@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gloomvein Roadmap</title>
+<meta name="description" content="What is in Gloomvein today and what the next releases bring.">
+<style>
+@font-face { font-family: "Lilita One"; src: url("roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #16120e; --card: #241c14; --ink: #f0e0c0; --soft: #c8b898; --line: #6a5638; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Lilita One", system-ui, sans-serif;
+  letter-spacing: 0.01em; line-height: 1.35; }
+header { text-align: center; padding: 2.2rem 1rem 1.4rem; background: radial-gradient(ellipse at top, #3a2a18 0%, var(--bg) 70%); }
+header img { width: min(26rem, 88vw); image-rendering: pixelated; }
+header h1 { margin: 0.6rem 0 0.2rem; font-size: clamp(2rem, 6vw, 3rem); font-weight: 400; color: #f0dcb4; }
+header p { margin: 0; color: var(--soft); font-size: 1.1rem; }
+main { max-width: 46rem; margin: 0 auto; padding: 1rem 1rem 3rem 1rem; position: relative; }
+.timeline { position: relative; padding-left: 2.6rem; }
+.timeline::before { content: ""; position: absolute; left: 0.95rem; top: 1.6rem; bottom: 3rem; width: 5px; background: var(--line); border-radius: 3px; }
+section { position: relative; background: var(--card); border: 3px solid var(--c); border-radius: 10px;
+  padding: 1.1rem 1.2rem 0.6rem; margin-bottom: 1.6rem; box-shadow: 0 6px 0 rgba(0,0,0,0.35); }
+section::before { content: ""; position: absolute; left: -2.35rem; top: 1.2rem; width: 1.3rem; height: 1.3rem;
+  border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 0.38rem #1a120a; }
+.tag { display: inline-block; background: var(--c); color: #1a1200; padding: 0.15rem 0.7rem; border-radius: 4px; font-size: 0.95rem; }
+h2 { margin: 0.45rem 0 0.1rem; font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 400; color: var(--c); filter: brightness(1.15); }
+.sub { margin: 0 0 0.8rem; color: var(--soft); font-size: 0.95rem; }
+ul { list-style: none; margin: 0; padding: 0; }
+li { display: grid; grid-template-columns: 15.5rem 1fr; gap: 1rem; align-items: center; padding: 0.55rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06); }
+.pics { display: flex; gap: 0.45rem; }
+.pic { width: 3.4rem; height: 3.4rem; display: grid; place-items: center; }
+.pic img { max-width: 100%; max-height: 100%; image-rendering: pixelated; }
+.q { background: #120c08; border: 3px solid var(--c); border-radius: 4px; color: var(--c); font-size: 1.9rem; }
+footer { text-align: center; color: var(--soft); padding: 0 1rem 2.5rem; font-size: 1rem; }
+footer a { color: #ffd24a; }
+@media (max-width: 34rem) {
+  li { grid-template-columns: 1fr; gap: 0.35rem; }
+  .pic { width: 2.8rem; height: 2.8rem; }
+  .timeline { padding-left: 2.1rem; }
+  section::before { left: -1.95rem; }
+  .timeline::before { left: 0.7rem; }
+}
+</style>
+</head>
+<body>
+<header>
+<img src="roadmap/ui_logo.png" alt="Gloomvein">
+<h1>Roadmap</h1>
+<p>Where Gloomvein is going &middot; version 0.0.1, early access</p>
+</header>
+<main>
+<div class="timeline">
+<section style="--c: #ffd24a"><span class="tag">OUT NOW</span><h2>Release 1: The First World</h2><p class="sub">Early access. Everything below is in the game today.</p><ul>
+<li><div class="pics"><span class="pic"><img src="roadmap/crest_melee.png" alt=""></span><span class="pic"><img src="roadmap/crest_ranged.png" alt=""></span><span class="pic"><img src="roadmap/crest_magic.png" alt=""></span><span class="pic"><img src="roadmap/crest_summoner.png" alt=""></span></div><div>Four classes, each its own way to play: Melee, Ranged, Magic and Summoner</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/icon_dirt.png" alt=""></span><span class="pic"><img src="roadmap/icon_ice.png" alt=""></span><span class="pic"><img src="roadmap/icon_sand.png" alt=""></span><span class="pic"><img src="roadmap/icon_obsidian.png" alt=""></span></div><div>Eight layers to dig through, from Greenreach down to the Cinder Depths</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/badge_normal.png" alt=""></span><span class="pic"><img src="roadmap/badge_heroic.png" alt=""></span><span class="pic"><img src="roadmap/badge_mythic.png" alt=""></span></div><div>Ten bosses, each a test of your whole build: gear, charms and potions</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/fx_meteor.png" alt=""></span><span class="pic"><img src="roadmap/crystal_shard.png" alt=""></span></div><div>Events: Blood Moon, Ooze Rain, Meteor Shower, the Raider Warband and Crystal Defence, plus Halloween and the Winter Festival</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/gold_pickaxe.png" alt=""></span><span class="pic"><img src="roadmap/gold_bar.png" alt=""></span><span class="pic"><img src="roadmap/healing_potion.png" alt=""></span><span class="pic"><img src="roadmap/frost_nova.png" alt=""></span></div><div>Crafting, a furnace you can steer, potions, spells, minions, arrows and mounts</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/digger_idle.png" alt=""></span><span class="pic"><img src="roadmap/foreman_idle.png" alt=""></span></div><div>A crew that digs for you, even while you are away</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/icon_gem.png" alt=""></span></div><div>Rebirth with the Core Tree and Class Mastery, on Normal, Heroic or Mythic</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/coin.png" alt=""></span></div><div>36 achievements, a daily gift and looks for your hero</div></li>
+</ul></section>
+<section style="--c: #7fd8ff"><span class="tag">COMING NEXT</span><h2>Release 1 updates</h2><p class="sub">Free updates to the first world.</p><ul>
+<li><div class="pics"><span class="pic"><img src="roadmap/prospector_idle.png" alt=""></span><span class="pic"><img src="roadmap/assayer_idle.png" alt=""></span></div><div>Helpers who move in: about twelve, with bonuses that work together</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/bone.png" alt=""></span><span class="pic"><img src="roadmap/bat_wing.png" alt=""></span><span class="pic"><img src="roadmap/gel.png" alt=""></span></div><div>The Bestiary: record every creature you meet and earn collection bonuses</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span></div><div>New lands on the surface, and an evil biome that spreads if you let it</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/iron_bar.png" alt=""></span><span class="pic"><img src="roadmap/silver_bar.png" alt=""></span></div><div>The Workbench, Anvil and Forge: a full crafting chain</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/focus_ring.png" alt=""></span><span class="pic"><img src="roadmap/fortune_potion.png" alt=""></span></div><div>The Tinker Bench to combine charms, herbs to gather and an Alchemist</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/cave_beetle.png" alt=""></span><span class="pic"><img src="roadmap/glow_moth.png" alt=""></span></div><div>More creatures to fight, and mounts you can see under your hero</div></li>
+</ul></section>
+<section style="--c: #c88aff"><span class="tag">RELEASE 2</span><h2>Upheaval</h2><p class="sub">Beat Cinderheart and the world changes. Not a reset: a transformation.</p><ul>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>A radiant land rises, and spreading biomes fight over the world</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span></div><div>Eight new bosses</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>New ores from ancient altars, and the gear forged from them</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span></div><div>About fifty new creatures and new events</div></li>
+<li><div class="pics"><span class="pic"><img src="roadmap/gold_helmet.png" alt=""></span><span class="pic"><img src="roadmap/gold_chestplate.png" alt=""></span></div><div>Wings, armour made for each class, more mounts, potions and charms</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>Fishing</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>More helpers to move in</div></li>
+</ul></section>
+<section style="--c: #ff8a5a"><span class="tag">RELEASE 3</span><h2>Endgame</h2><p class="sub">The last threats to the world, and what comes after.</p><ul>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span></div><div>The final bosses</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span><span class="pic q" aria-label="not revealed yet">?</span></div><div>Invaders from the sky and a siege to break</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>Endgame gear</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>Challenge worlds with their own rules</div></li>
+<li><div class="pics"><span class="pic q" aria-label="not revealed yet">?</span></div><div>Pets</div></li>
+</ul></section>
+</div>
+</main>
+<footer>
+<p>Plans change with your feedback. <a href="index.html">Gloomvein home</a> Found a problem or have an idea? Write to <a href="mailto:gloomvein@gmail.com">gloomvein@gmail.com</a>, or use Report a problem in the game's Options.</p>
+<p><small>Lilita One font by Juan Montoreano, SIL Open Font License (<a href="roadmap/LilitaOne-OFL.txt">licence</a>).</small></p>
+</footer>
+</body>
+</html>

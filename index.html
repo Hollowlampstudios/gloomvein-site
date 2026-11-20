@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gloomvein: Idle Mining RPG</title>
+<meta name="description" content="An idle mining RPG for Android. The gold runs deeper than anyone has dug, and so does whatever is guarding it.">
+<link rel="canonical" href="https://gloomvein.com/">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#120d09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gloomvein: Idle Mining RPG">
+<meta property="og:description" content="An idle mining RPG for Android. The gold runs deeper than anyone has dug, and so does whatever is guarding it.">
+<meta property="og:url" content="https://gloomvein.com/">
+<meta property="og:image" content="https://gloomvein.com/img/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face { font-family: "Lilita One"; src: url("roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root {
+  --bg: #120d09; --rock: #1d1610; --edge: #3a2c1e; --ink: #f2e4c6; --soft: #c4b394; --dim: #8c7c62;
+  --gold: #ffd24a; --ember: #ff8a3a; --violet: #b98cff;
+  --display: "Lilita One", system-ui, sans-serif; --text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; color: var(--ink); font: 1.05rem/1.6 var(--text);
+  background: linear-gradient(#120d09e0, #120d09cc 40%, #120d09d6), url("img/world.webp") center top / cover no-repeat, var(--bg); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--gold); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; margin: 0; letter-spacing: 0.01em; }
+h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); }
+h3 { font-size: 1.5rem; }
+.wrap { width: min(72rem, 100% - 2rem); margin-inline: auto; }
+.lede { color: var(--soft); max-width: 34rem; margin: 0.6rem 0 0; }
+
+.btn { display: inline-block; font-family: var(--display); font-size: 1.3rem; text-decoration: none; padding: 0.7rem 1.5rem;
+  border-radius: 0.6rem; border: 3px solid #2a1806; }
+.btn.gold { background: linear-gradient(#ffe27a, #f2b52c); color: #2a1806; box-shadow: 0 4px 0 #8a5a12, 0 0 28px #ffb02e55; }
+.btn.gold:hover { background: linear-gradient(#fff0a8, #ffc23c); }
+.btn.dark { background: #2a2018; color: var(--ink); border-color: #4a3a2a; box-shadow: 0 4px 0 #0a0604; }
+.btn.dark:hover { background: #342818; }
+.btn.soon { background: transparent; color: var(--soft); border: 3px dashed #4a3a2a; cursor: default; }
+
+/* Opening: the logo and the painting of the hero facing the deep */
+.top { display: grid; gap: 1rem; align-items: center; padding: 1.5rem 0 1rem; }
+.top-art img { width: min(100%, 36rem); margin-inline: auto;
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); }
+.logo { width: min(100%, 30rem); margin-inline: auto; filter: drop-shadow(0 6px 18px #000a); }
+.top-text { text-align: center; }
+.pitch { font-family: var(--display); font-size: clamp(1.5rem, 4.2vw, 2.1rem); line-height: 1.25; color: var(--ink); max-width: 30rem; margin: 1.2rem auto 1.6rem; text-shadow: 0 2px 12px #000; }
+.ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+.ctas.left { justify-content: flex-start; margin-top: 1.4rem; }
+.note { color: var(--dim); font-size: 0.95rem; margin: 1rem 0 0; }
+@media (min-width: 900px) {
+  .top { grid-template-columns: 1fr 1fr; padding: 3rem 0 2rem; min-height: min(100svh, 52rem); }
+  .top-text { text-align: left; order: -1; }
+  .logo { margin-inline: 0; }
+  .pitch { margin-inline: 0; }
+  .ctas { justify-content: flex-start; }
+}
+
+section { padding: 4rem 0; }
+
+/* The way down: one gold vein from the surface to the bottom, a stop at each layer */
+.layers { list-style: none; margin: 2.5rem 0 0; padding: 0; position: relative; }
+.layers::before { content: ""; position: absolute; top: 0; bottom: 0; left: 11px; width: 6px; border-radius: 3px;
+  background: linear-gradient(var(--gold), #f2a72c 55%, var(--ember)); box-shadow: 0 0 18px #ffb02e66; }
+.layer { position: relative; display: grid; gap: 0.8rem; padding: 0 0 2.6rem 3rem; }
+.layer::before { content: ""; position: absolute; left: 4px; top: 0.35rem; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg); border: 5px solid var(--gold); }
+.depth { font-family: var(--display); color: var(--gold); font-size: 1.1rem; }
+.layer img { border-radius: 0.7rem; border: 3px solid var(--edge); aspect-ratio: 1080 / 870; width: 100%; object-fit: cover; background: var(--rock); }
+.layer p { margin: 0.3rem 0 0; color: var(--soft); }
+@media (min-width: 900px) {
+  .layers::before { left: calc(50% - 3px); }
+  .layer { grid-template-columns: 1fr 1fr; column-gap: 5rem; padding: 0 0 3.5rem; align-items: center; }
+  .layer::before { left: calc(50% - 10px); top: 50%; translate: 0 -50%; }
+  .layer .shot { grid-column: 1; }
+  .layer .about { grid-column: 2; }
+  .layer:nth-child(even) .shot { grid-column: 2; grid-row: 1; }
+  .layer:nth-child(even) .about { grid-column: 1; grid-row: 1; text-align: right; }
+}
+
+/* Heroes */
+.classes { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1rem; margin-top: 2rem; }
+.class { background: var(--rock); border: 2px solid var(--edge); border-radius: 0.8rem; padding: 1.3rem; }
+.class img { width: 96px; height: 96px; image-rendering: pixelated; }
+.class h3 { margin-top: 0.6rem; }
+.class p { margin: 0.2rem 0 0; color: var(--soft); }
+.class small { color: var(--dim); font-size: 0.9rem; }
+
+/* Fair play */
+.fair { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.6rem 2.5rem; margin-top: 2rem; }
+.fair h3 { font-size: 1.3rem; color: var(--gold); }
+.fair p { margin: 0.3rem 0 0; color: var(--soft); }
+
+/* Support: the deep's violet, the one place it is used */
+.support { border: 2px solid #5a3f8a; border-radius: 1rem; padding: clamp(1.4rem, 5vw, 3rem);
+  background: radial-gradient(ellipse at top, #2a1d40, var(--rock) 70%); box-shadow: 0 0 40px #7a4ccf22; }
+.support h2 { color: var(--ink); }
+.support p { color: var(--soft); max-width: 40rem; }
+.support .eyes { color: var(--violet); }
+.roadmap-link { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
+
+footer { border-top: 2px solid var(--edge); padding: 2rem 0 1rem; color: var(--dim); font-size: 0.95rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 0.8rem; }
+footer a { color: var(--soft); }
+.credit { display: block; margin-top: 1.5rem; font-size: 9px; color: #5a4c38; text-decoration: none; }
+.credit:hover, .credit:focus-visible { color: var(--soft); }
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <div class="top-text">
+    <h1><img class="logo" src="img/logo.webp" width="900" height="268" alt="Gloomvein"></h1>
+    <p class="pitch">The gold runs deeper than anyone has dug.<br>So does whatever is guarding it.</p>
+    <div class="ctas"><span class="btn soon" aria-disabled="true">Coming soon on itch.io</span><a class="btn dark" href="#support">Support the game</a></div>
+    <p class="note">An idle mining RPG for Android. Free, in early access.</p>
+  </div>
+  <div class="top-art"><img src="img/hero.webp" width="960" height="960" alt="A small hero with a raised sword faces a huge shadow with glowing violet eyes and claws, in a tunnel lit by a vein of gold."></div>
+</header>
+<main>
+<section class="wrap" aria-labelledby="down">
+  <h2 id="down">The way down</h2>
+  <p class="lede">Each layer is deeper, darker and harder than the last, with its own enemies, ores and bosses.</p>
+  <ol class="layers">
+<li class="layer"><div class="shot"><img src="img/layer_greenreach.webp" width="1080" height="870" loading="lazy" alt="Greenreach: a zombie and slime in the middle of the layer"></div><div class="about"><span class="depth">Depth 0</span><h3>Greenreach</h3><p>Grass, sky, slimes and zombies. The Slime Guardian blocks the shaft at depth 10.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_rootdeep.webp" width="1080" height="870" loading="lazy" alt="Rootdeep: a root creeper and cave spider in the middle of the layer"></div><div class="about"><span class="depth">Depth 12</span><h3>Rootdeep</h3><p>Old roots and glowing mushrooms. Root creepers, cave spiders and the first lead.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_glimmer.webp" width="1080" height="870" loading="lazy" alt="Glimmer Caverns: a stone brute and crystal slime in the middle of the layer"></div><div class="about"><span class="depth">Depth 35</span><h3>Glimmer Caverns</h3><p>Crystal caves full of stone brutes and crystal slimes. Iron starts here, and Stormgaze is watching.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_frostvale.webp" width="1080" height="870" loading="lazy" alt="Frostvale: a frost troll and snow wolf in the middle of the layer"></div><div class="about"><span class="depth">Depth 55</span><h3>Frostvale</h3><p>Ice, frost trolls, snow wolves and silver. The Rime Queen rules the bottom.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_sunscour.webp" width="1080" height="870" loading="lazy" alt="Sunscour: a sand brute and scorpion in the middle of the layer"></div><div class="about"><span class="depth">Depth 90</span><h3>Sunscour</h3><p>Sand halls under a buried sun. Sand brutes, scorpions, gold, and two bosses made of sand.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_mirebloom.webp" width="1080" height="870" loading="lazy" alt="Mirebloom: a bog spitter and mire crawler in the middle of the layer"></div><div class="about"><span class="depth">Depth 135</span><h3>Mirebloom</h3><p>A drowned jungle full of bog spitters, mire crawlers and lurkers.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_crypt.webp" width="1080" height="870" loading="lazy" alt="The Crypt: a bone colossus and skeleton in the middle of the layer"></div><div class="about"><span class="depth">Depth 185</span><h3>The Crypt</h3><p>Skeletons, wraiths and a colossus made of bone. The Crypt Warden guards the stairs.</p></div></li>
+<li class="layer"><div class="shot"><img src="img/layer_cinder.webp" width="1080" height="870" loading="lazy" alt="Cinder Depths: a magma brute and cinder hound in the middle of the layer"></div><div class="about"><span class="depth">Depth 235</span><h3>Cinder Depths</h3><p>Lava, magma brutes and cinder hounds. At the very bottom waits Cinderheart.</p></div></li>
+  </ol>
+</section>
+<section class="wrap" aria-labelledby="heroes">
+  <h2 id="heroes">Pick your hero</h2>
+  <p class="lede">Four classes, each with its own weapons, gear and way to fight. Rebirth into another when you reach the bottom.</p>
+  <div class="classes">
+<div class="class"><img src="img/crest_melee.png" width="72" height="72" alt=""><h3 style="color:#e2694c">Melee</h3><p>Hit hard and outlast everything</p><small>Fights with swords</small></div>
+<div class="class"><img src="img/crest_ranged.png" width="72" height="72" alt=""><h3 style="color:#7cc25e">Ranged</h3><p>Shoot them before they arrive</p><small>Fights with bows</small></div>
+<div class="class"><img src="img/crest_magic.png" width="72" height="72" alt=""><h3 style="color:#a982f0">Magic</h3><p>Big spells, timed well</p><small>Fights with staves</small></div>
+<div class="class"><img src="img/crest_summoner.png" width="72" height="72" alt=""><h3 style="color:#e8ad4a">Summoner</h3><p>Crack the whip, command the horde</p><small>Fights with whips</small></div>
+  </div>
+</section>
+<section class="wrap" aria-labelledby="fair">
+  <h2 id="fair">Fair to play</h2>
+  <div class="fair">
+<div><h3>Ads only when you choose</h3><p>Watch one for a bonus if you like. No banners, no pop-ups, nothing locked behind an ad.</p></div>
+<div><h3>Nothing random for sale</h3><p>No loot boxes. What a pack holds is shown before you get it.</p></div>
+<div><h3>Your save stays on your phone</h3><p>No account, no sign-in, nothing collected by the game.</p></div>
+<div><h3>Idle, but not on autopilot</h3><p>Your miners dig while you are away. Beating the bosses takes the right gear and good timing.</p></div>
+  </div>
+</section>
+<section class="wrap roadmap-link" aria-labelledby="next">
+  <div><h2 id="next">What is coming</h2><p class="lede">New helpers, a bestiary, more biomes and an endgame. See where the road goes.</p></div>
+  <a class="btn dark" href="roadmap.html">See the roadmap</a>
+</section>
+<section class="wrap" aria-labelledby="ideas">
+  <h2 id="ideas">Found a bug? Got an idea?</h2>
+  <p class="lede">Tell us. Fixes go into the next update, and good ideas end up on the roadmap.</p>
+  <div class="ctas left"><a class="btn dark" href="mailto:gloomvein@gmail.com?subject=Gloomvein%20bug%20report&amp;body=What%20happened%3A%0A%0A%0AWhat%20you%20expected%3A%0A%0A%0AYour%20phone%20%28model%20and%20Android%20version%29%3A%0AGame%20version%20%28bottom%20of%20the%20Options%20screen%29%3A%0A">Report a bug</a><a class="btn dark" href="mailto:gloomvein@gmail.com?subject=Gloomvein%20feature%20request&amp;body=Your%20idea%3A%0A%0A%0AWhy%20it%20would%20make%20the%20game%20better%3A%0A">Request a feature</a></div>
+  <p class="note">In the game, Options then Report a problem fills in your phone and game details for you.</p>
+</section>
+<section class="wrap" id="support" aria-labelledby="help">
+  <div class="support">
+    <h2 id="help">Keep the lamp lit</h2>
+    <p>Gloomvein is free, made by Hollowlamp Studios, a small independent studio. If you enjoy it, a donation helps keep it
+    growing: new content, new features and fixes.</p>
+    <p>Donations are a thank-you only: they do not unlock anything in the game.</p>
+    <span class="btn soon" aria-disabled="true">Donations open soon</span>
+  </div>
+</section>
+</main>
+<footer class="wrap">
+  <nav aria-label="Site"><a href="roadmap.html">Roadmap</a><a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20bug%20report&amp;body=What%20happened%3A%0A%0A%0AWhat%20you%20expected%3A%0A%0A%0AYour%20phone%20%28model%20and%20Android%20version%29%3A%0AGame%20version%20%28bottom%20of%20the%20Options%20screen%29%3A%0A">Report a bug</a><a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20feature%20request&amp;body=Your%20idea%3A%0A%0A%0AWhy%20it%20would%20make%20the%20game%20better%3A%0A">Request a feature</a><a href="privacy.html">Privacy policy</a><a href="mailto:gloomvein@gmail.com">gloomvein@gmail.com</a></nav>
+  <p>&copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</p>
+  <a class="credit" href="roadmap/LilitaOne-OFL.txt">Font: Lilita One by Juan Montoreano (SIL OFL)</a>
+</footer>
+</body>
+</html>
