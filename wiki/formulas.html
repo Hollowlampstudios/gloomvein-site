@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulas - Gloomvein Wiki</title>
+<meta name="description" content="Every Gloomvein formula: enemy scaling, boss stats, hero stats, defense and regeneration.">
+<link rel="canonical" href="https://gloomvein.com/wiki/formulas.html">
+<link rel="icon" href="../img/favicon.png" type="image/png">
+<meta name="theme-color" content="#120d09">
+<style>
+@font-face { font-family: "Lilita One"; src: url("../roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #120d09; --rock: #1d1610; --rock2: #241b13; --edge: #3a2c1e; --ink: #f2e4c6; --soft: #c4b394; --dim: #8c7c62;
+  --gold: #ffd24a; --ember: #ff8a3a; --violet: #b98cff;
+  --display: "Lilita One", system-ui, sans-serif; --text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 1rem/1.6 var(--text); background: var(--bg); }
+a { color: var(--gold); }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 0 0 0.4rem; }
+h2 { font-size: 1.7rem; margin: 2.4rem 0 0.6rem; color: var(--gold); }
+h3 { font-size: 1.25rem; margin: 1.6rem 0 0.4rem; }
+p, li { color: var(--soft); max-width: 46rem; }
+strong, b { color: var(--ink); }
+.dim { color: var(--dim); font-size: 0.9em; }
+.top { border-bottom: 2px solid var(--edge); background: #0d0906; }
+.top .in { width: min(84rem, 100% - 2rem); margin-inline: auto; display: flex; align-items: center; gap: 1rem; padding: 0.6rem 0; }
+.top img { height: 40px; width: auto; }
+.top a { text-decoration: none; font-family: var(--display); font-size: 1.25rem; color: var(--ink); }
+.top .sp { flex: 1; }
+.top .site { font-family: var(--text); font-size: 0.95rem; color: var(--soft); }
+.page { width: min(84rem, 100% - 2rem); margin-inline: auto; display: grid; gap: 2rem; padding: 1.5rem 0 3rem; }
+nav.side ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+nav.side a { display: block; padding: 0.3rem 0.7rem; border-radius: 0.4rem; border: 1px solid var(--edge); text-decoration: none; color: var(--soft); background: var(--rock); font-size: 0.95rem; }
+nav.side a[aria-current] { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+@media (min-width: 980px) {
+  .page { grid-template-columns: 14rem 1fr; }
+  nav.side ul { display: block; position: sticky; top: 1rem; }
+  nav.side li { margin-bottom: 0.25rem; }
+}
+main { min-width: 0; }
+.lede { font-size: 1.1rem; color: var(--soft); }
+.tbl { overflow-x: auto; margin: 0.8rem 0 1.2rem; border: 1px solid var(--edge); border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--edge); }
+th { background: var(--rock2); color: var(--ink); font-weight: 600; white-space: nowrap; }
+td { color: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td b { color: var(--ink); }
+img.i { width: 24px; height: 24px; object-fit: contain; image-rendering: pixelated; vertical-align: -6px; margin-right: 0.35rem; }
+img.p { width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated; }
+img.b { width: 120px; height: 120px; object-fit: contain; image-rendering: pixelated; }
+.card { background: var(--rock); border: 1px solid var(--edge); border-radius: 0.8rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+.card h3 { margin-top: 0; }
+.head { display: flex; gap: 1rem; align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.8rem; }
+.grid a { display: block; background: var(--rock); border: 1px solid var(--edge); border-radius: 0.7rem; padding: 0.9rem 1rem; text-decoration: none; }
+.grid a b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--gold); display: block; }
+.grid a span { color: var(--soft); font-size: 0.95rem; }
+.note { border-left: 4px solid var(--gold); background: var(--rock); padding: 0.7rem 1rem; border-radius: 0 0.5rem 0.5rem 0; color: var(--soft); max-width: 46rem; }
+code { background: var(--rock2); padding: 0.05rem 0.35rem; border-radius: 0.3rem; color: var(--ink); font-size: 0.9em; }
+footer { border-top: 2px solid var(--edge); color: var(--dim); font-size: 0.9rem; }
+footer .in { width: min(84rem, 100% - 2rem); margin-inline: auto; padding: 1.2rem 0 2rem; }
+footer a { color: var(--soft); }
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><a href="../index.html"><img src="../img/logo.webp" alt="Gloomvein" width="134" height="40"></a><a href="index.html">Wiki</a><span class="sp"></span><a class="site" href="../index.html">gloomvein.com</a></div></header>
+<div class="page">
+<nav class="side" aria-label="Wiki pages"><ul><li><a href="index.html">Wiki home</a></li><li><a href="getting-started.html">How it works</a></li><li><a href="classes.html">Classes</a></li><li><a href="world.html">The world</a></li><li><a href="enemies.html">Enemies</a></li><li><a href="bosses.html">Bosses</a></li><li><a href="mining.html">Mining</a></li><li><a href="crafting.html">Furnace and materials</a></li><li><a href="equipment.html">Equipment</a></li><li><a href="potions.html">Potions</a></li><li><a href="spells.html">Spells (Magic)</a></li><li><a href="minions.html">Minions (Summoner)</a></li><li><a href="crew.html">Crew</a></li><li><a href="events.html">Events</a></li><li><a href="rebirth.html">Rebirth and difficulty</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="gems.html">Gems and rewards</a></li><li><a href="formulas.html" aria-current=page>Formulas</a></li></ul></nav>
+<main>
+<h1>Formulas</h1>
+<p class="lede">Every rule the game uses, with its exact numbers.</p>
+<h2>Enemies</h2>
+<p><code>health = base health x layer strength x (1 + depth/5)^1.15 x wave x night x elite x event x difficulty</code></p>
+<p><code>attack = base attack x pressure(depth) x layer strength x (1 + depth/30)^1 x wave x night x elite x event x difficulty</code></p>
+<p><code>coins = round(base coins x (1 + depth/5)^1.15 x night x elite x event x difficulty)</code>, at least 1.</p>
+<ul>
+<li><b>Pressure</b> is x1.5 at the surface, easing to x1.3 at depth 240.</li>
+<li><b>Wave</b>: 1 + 0.03 x (Elite Waves beaten), at most 9 steps.</li>
+<li><b>Night</b> (full night): health x1.2, attack x1.15, coins x1.5, drops x1.5, spawns 30% faster.</li>
+<li><b>Elite</b>: health x1.8, attack x1.3, coins x3, drops x2.</li>
+<li><b>Drops</b>: each drop rolls its chance x (night x elite x event x difficulty) x (1 + drop chance bonus), capped at 100%.</li>
+</ul>
+<div class="tbl"><table><thead><tr><th class="n">Depth</th><th class="n">Health and coins x</th><th class="n">Attack x</th><th class="n">Pressure</th><th class="n">Respawn wait</th></tr></thead><tbody><tr><td class="n">0</td><td class="n">1</td><td class="n">1</td><td class="n">x1.5</td><td class="n">3 s</td></tr><tr><td class="n">30</td><td class="n">9.37</td><td class="n">2</td><td class="n">x1.48</td><td class="n">3.9 s</td></tr><tr><td class="n">60</td><td class="n">19.1</td><td class="n">3</td><td class="n">x1.45</td><td class="n">4.8 s</td></tr><tr><td class="n">90</td><td class="n">29.55</td><td class="n">4</td><td class="n">x1.43</td><td class="n">5.6 s</td></tr><tr><td class="n">120</td><td class="n">40.52</td><td class="n">5</td><td class="n">x1.4</td><td class="n">6.5 s</td></tr><tr><td class="n">150</td><td class="n">51.89</td><td class="n">6</td><td class="n">x1.38</td><td class="n">7.4 s</td></tr><tr><td class="n">180</td><td class="n">63.6</td><td class="n">7</td><td class="n">x1.35</td><td class="n">8.2 s</td></tr><tr><td class="n">210</td><td class="n">75.59</td><td class="n">8</td><td class="n">x1.32</td><td class="n">9.1 s</td></tr><tr><td class="n">240</td><td class="n">87.85</td><td class="n">9</td><td class="n">x1.3</td><td class="n">10 s</td></tr><tr><td class="n">300</td><td class="n">113.01</td><td class="n">11</td><td class="n">x1.3</td><td class="n">10 s</td></tr></tbody></table></div>
+<h2>Bosses</h2>
+<p><code>boss health = base x difficulty boss health</code>; <code>boss attack = base x 1.6 x (1 + (difficulty enemy attack - 1) / 2)</code>.
+After its enrage time, <code>attack = that x (1 + enrage rate x seconds past it)</code>. Helpers have 25% of the same enemy's health and 60% of its attack at that depth, and drop nothing.</p>
+<h2>Your hero</h2>
+<ul>
+<li><code>attack = (class base + gear + sets + potions) x class tier multiplier x (1 + Core Tree attack %)</code></li>
+<li><code>health = (class base + gear + sets + potions) x (1 + Core Tree health %) x class tier health multiplier</code></li>
+<li><code>attack interval = class base / (1 + attack speed)</code>, never below 0.25 s.</li>
+<li><code>tap damage = attack x class tap multiplier</code>.</li>
+<li>Crit: chance capped at 75%, x2 damage. Minion and tower hits never crit.</li>
+<li>Damage taken: x 10 / (10 + defense), then the Arcane ward and class shields.</li>
+<li>Health regeneration: 1.5% of max health per second plus class and gear regen, at 60% speed while enemies are hitting you.</li>
+<li>Ore luck is capped at 100%, arrow save at 80% and lifesteal at 50%.</li>
+</ul>
+<div class="tbl"><table><thead><tr><th class="n">Defense</th><th class="n">Damage you take</th></tr></thead><tbody><tr><td class="n">0</td><td class="n">100%</td></tr><tr><td class="n">3</td><td class="n">76.9%</td></tr><tr><td class="n">5</td><td class="n">66.7%</td></tr><tr><td class="n">10</td><td class="n">50%</td></tr><tr><td class="n">20</td><td class="n">33.3%</td></tr><tr><td class="n">30</td><td class="n">25%</td></tr><tr><td class="n">50</td><td class="n">16.7%</td></tr><tr><td class="n">75</td><td class="n">11.8%</td></tr><tr><td class="n">100</td><td class="n">9.1%</td></tr></tbody></table></div>
+</main>
+</div>
+<footer><div class="in">Every number on this wiki is generated from the game's own data and code (game version 0.0.1). Spotted something wrong? <a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20wiki">Tell us</a>. &copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</div></footer>
+</body>
+</html>

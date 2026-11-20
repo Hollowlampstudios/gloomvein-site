@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mining - Gloomvein Wiki</title>
+<meta name="description" content="Gloomvein mining: every ore and block, pickaxes, pick power, ore luck and meteorites.">
+<link rel="canonical" href="https://gloomvein.com/wiki/mining.html">
+<link rel="icon" href="../img/favicon.png" type="image/png">
+<meta name="theme-color" content="#120d09">
+<style>
+@font-face { font-family: "Lilita One"; src: url("../roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #120d09; --rock: #1d1610; --rock2: #241b13; --edge: #3a2c1e; --ink: #f2e4c6; --soft: #c4b394; --dim: #8c7c62;
+  --gold: #ffd24a; --ember: #ff8a3a; --violet: #b98cff;
+  --display: "Lilita One", system-ui, sans-serif; --text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 1rem/1.6 var(--text); background: var(--bg); }
+a { color: var(--gold); }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 0 0 0.4rem; }
+h2 { font-size: 1.7rem; margin: 2.4rem 0 0.6rem; color: var(--gold); }
+h3 { font-size: 1.25rem; margin: 1.6rem 0 0.4rem; }
+p, li { color: var(--soft); max-width: 46rem; }
+strong, b { color: var(--ink); }
+.dim { color: var(--dim); font-size: 0.9em; }
+.top { border-bottom: 2px solid var(--edge); background: #0d0906; }
+.top .in { width: min(84rem, 100% - 2rem); margin-inline: auto; display: flex; align-items: center; gap: 1rem; padding: 0.6rem 0; }
+.top img { height: 40px; width: auto; }
+.top a { text-decoration: none; font-family: var(--display); font-size: 1.25rem; color: var(--ink); }
+.top .sp { flex: 1; }
+.top .site { font-family: var(--text); font-size: 0.95rem; color: var(--soft); }
+.page { width: min(84rem, 100% - 2rem); margin-inline: auto; display: grid; gap: 2rem; padding: 1.5rem 0 3rem; }
+nav.side ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+nav.side a { display: block; padding: 0.3rem 0.7rem; border-radius: 0.4rem; border: 1px solid var(--edge); text-decoration: none; color: var(--soft); background: var(--rock); font-size: 0.95rem; }
+nav.side a[aria-current] { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+@media (min-width: 980px) {
+  .page { grid-template-columns: 14rem 1fr; }
+  nav.side ul { display: block; position: sticky; top: 1rem; }
+  nav.side li { margin-bottom: 0.25rem; }
+}
+main { min-width: 0; }
+.lede { font-size: 1.1rem; color: var(--soft); }
+.tbl { overflow-x: auto; margin: 0.8rem 0 1.2rem; border: 1px solid var(--edge); border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--edge); }
+th { background: var(--rock2); color: var(--ink); font-weight: 600; white-space: nowrap; }
+td { color: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td b { color: var(--ink); }
+img.i { width: 24px; height: 24px; object-fit: contain; image-rendering: pixelated; vertical-align: -6px; margin-right: 0.35rem; }
+img.p { width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated; }
+img.b { width: 120px; height: 120px; object-fit: contain; image-rendering: pixelated; }
+.card { background: var(--rock); border: 1px solid var(--edge); border-radius: 0.8rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+.card h3 { margin-top: 0; }
+.head { display: flex; gap: 1rem; align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.8rem; }
+.grid a { display: block; background: var(--rock); border: 1px solid var(--edge); border-radius: 0.7rem; padding: 0.9rem 1rem; text-decoration: none; }
+.grid a b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--gold); display: block; }
+.grid a span { color: var(--soft); font-size: 0.95rem; }
+.note { border-left: 4px solid var(--gold); background: var(--rock); padding: 0.7rem 1rem; border-radius: 0 0.5rem 0.5rem 0; color: var(--soft); max-width: 46rem; }
+code { background: var(--rock2); padding: 0.05rem 0.35rem; border-radius: 0.3rem; color: var(--ink); font-size: 0.9em; }
+footer { border-top: 2px solid var(--edge); color: var(--dim); font-size: 0.9rem; }
+footer .in { width: min(84rem, 100% - 2rem); margin-inline: auto; padding: 1.2rem 0 2rem; }
+footer a { color: var(--soft); }
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><a href="../index.html"><img src="../img/logo.webp" alt="Gloomvein" width="134" height="40"></a><a href="index.html">Wiki</a><span class="sp"></span><a class="site" href="../index.html">gloomvein.com</a></div></header>
+<div class="page">
+<nav class="side" aria-label="Wiki pages"><ul><li><a href="index.html">Wiki home</a></li><li><a href="getting-started.html">How it works</a></li><li><a href="classes.html">Classes</a></li><li><a href="world.html">The world</a></li><li><a href="enemies.html">Enemies</a></li><li><a href="bosses.html">Bosses</a></li><li><a href="mining.html" aria-current=page>Mining</a></li><li><a href="crafting.html">Furnace and materials</a></li><li><a href="equipment.html">Equipment</a></li><li><a href="potions.html">Potions</a></li><li><a href="spells.html">Spells (Magic)</a></li><li><a href="minions.html">Minions (Summoner)</a></li><li><a href="crew.html">Crew</a></li><li><a href="events.html">Events</a></li><li><a href="rebirth.html">Rebirth and difficulty</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="gems.html">Gems and rewards</a></li><li><a href="formulas.html">Formulas</a></li></ul></nav>
+<main>
+<h1>Mining</h1>
+<p class="lede">Tap a block to deal your mining damage to it. You start with 5 mining damage and pick power 1.</p>
+<ul>
+<li>A block can only be broken when your <b>pick power</b> is at least its required power. A column never rolls a new unbreakable block while it already holds 2.</li>
+<li><b>Ore luck</b> is the chance that an ore block gives 2 ores instead of 1 (plain blocks never do). It comes from pickaxes, charms, mounts, armor sets, potions and the Core Tree, up to 100%.</li>
+<li>Mining damage adds up from pickaxes, charms, mounts, sets and potions.</li>
+<li>During a Meteor Shower some new blocks are meteorites (25% chance each, up to 8 per shower): break one for 2 gems.</li>
+</ul>
+<h2>Ores</h2>
+<p class="dim">"Where" is the share of new blocks in that layer that are this ore.</p>
+<div class="tbl"><table><thead><tr><th>Ore</th><th class="n">Health</th><th class="n">Pick power</th><th>Sells for</th><th>Where</th></tr></thead><tbody><tr><td><img class="i" src="img/copper.png" alt="" loading="lazy"><b>Copper</b></td><td class="n">10</td><td class="n">1</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">1</td><td>Greenreach 7.9%<br>Rootdeep 6.7%<br>Glimmer Caverns 3.9%<br>Frostvale 3%<br>Sunscour 3%<br>Mirebloom 3.1%<br>The Crypt 2.8%<br>Cinder Depths 2.8%</td></tr><tr><td><img class="i" src="img/tin.png" alt="" loading="lazy"><b>Tin</b></td><td class="n">12</td><td class="n">1</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">1</td><td>Greenreach 5%<br>Rootdeep 5.6%<br>Glimmer Caverns 3.9%<br>Frostvale 3%<br>Sunscour 3%<br>Mirebloom 3.1%<br>The Crypt 2.8%<br>Cinder Depths 2.8%</td></tr><tr><td><img class="i" src="img/lead.png" alt="" loading="lazy"><b>Lead</b></td><td class="n">44</td><td class="n">2</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">4</td><td>Rootdeep 15.6%<br>Glimmer Caverns 10.5%<br>Frostvale 3%<br>Sunscour 3%<br>Mirebloom 3.1%<br>The Crypt 2.8%<br>Cinder Depths 2.8%</td></tr><tr><td><img class="i" src="img/iron.png" alt="" loading="lazy"><b>Iron</b></td><td class="n">40</td><td class="n">3</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">4</td><td>Glimmer Caverns 21.1%<br>Frostvale 10.1%<br>Sunscour 7.9%<br>Mirebloom 8.2%<br>The Crypt 7.5%<br>Cinder Depths 5.6%</td></tr><tr><td><img class="i" src="img/silver.png" alt="" loading="lazy"><b>Silver</b></td><td class="n">70</td><td class="n">4</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">8</td><td>Frostvale 14.1%<br>Sunscour 11.9%<br>Mirebloom 12.4%<br>The Crypt 11.2%<br>Cinder Depths 7.5%</td></tr><tr><td><img class="i" src="img/gold.png" alt="" loading="lazy"><b>Gold</b></td><td class="n">110</td><td class="n">5</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">16</td><td>Sunscour 7.9%<br>Mirebloom 14.4%<br>The Crypt 15%<br>Cinder Depths 16.8%</td></tr></tbody></table></div>
+<h2>Pickaxes</h2>
+<p>Crafting a pickaxe with more pick power than your current one equips it at once. Your pickaxe also limits the crew: a crew member can never break a block your own pickaxe could not.</p>
+<div class="tbl"><table><thead><tr><th>Pickaxe</th><th class="n">Pick power</th><th class="n">Mining damage</th><th>Also</th><th>Cost</th></tr></thead><tbody><tr><td><img class="i" src="img/copper_pickaxe.png" alt="" loading="lazy"><b>Copper pickaxe</b></td><td class="n">2</td><td class="n">4</td><td>-</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">26, <img class="i" src="img/copper_bar.png" alt="" loading="lazy">5 Copper bar</td></tr><tr><td><img class="i" src="img/tin_pickaxe.png" alt="" loading="lazy"><b>Tin pickaxe</b></td><td class="n">2</td><td class="n">3</td><td>Ore luck +15%</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">26, <img class="i" src="img/tin_bar.png" alt="" loading="lazy">5 Tin bar</td></tr><tr><td><img class="i" src="img/lead_pickaxe.png" alt="" loading="lazy"><b>Lead pickaxe</b></td><td class="n">3</td><td class="n">7</td><td>-</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">1,200, <img class="i" src="img/lead_bar.png" alt="" loading="lazy">12 Lead bar</td></tr><tr><td><img class="i" src="img/iron_pickaxe.png" alt="" loading="lazy"><b>Iron pickaxe</b></td><td class="n">4</td><td class="n">12</td><td>-</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">3,000, <img class="i" src="img/iron_bar.png" alt="" loading="lazy">21 Iron bar</td></tr><tr><td><img class="i" src="img/silver_pickaxe.png" alt="" loading="lazy"><b>Silver pickaxe</b></td><td class="n">5</td><td class="n">20</td><td>-</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">12,000, <img class="i" src="img/silver_bar.png" alt="" loading="lazy">24 Silver bar</td></tr><tr><td><img class="i" src="img/gold_pickaxe.png" alt="" loading="lazy"><b>Gold pickaxe</b></td><td class="n">6</td><td class="n">32</td><td>-</td><td><img class="i" src="img/coin.png" alt="" loading="lazy">22,000, <img class="i" src="img/gold_bar.png" alt="" loading="lazy">40 Gold bar</td></tr></tbody></table></div>
+<h2>Other blocks</h2>
+<div class="tbl"><table><thead><tr><th>Block</th><th class="n">Health</th><th class="n">Pick power</th><th>Where</th></tr></thead><tbody><tr><td><img class="i" src="img/dirt.png" alt="" loading="lazy"><b>Dirt</b></td><td class="n">6</td><td class="n">1</td><td>Greenreach 65.3%<br>Rootdeep 27.8%<br>Glimmer Caverns 10.5%<br>Mirebloom 8.2%</td></tr><tr><td><img class="i" src="img/stone.png" alt="" loading="lazy"><b>Stone</b></td><td class="n">14</td><td class="n">1</td><td>Greenreach 21.8%<br>Rootdeep 44.4%<br>Glimmer Caverns 50%<br>Frostvale 12.1%<br>Sunscour 5.9%<br>Mirebloom 14.4%<br>The Crypt 13.1%<br>Cinder Depths 13.1%</td></tr><tr><td><img class="i" src="img/ice.png" alt="" loading="lazy"><b>Ice</b></td><td class="n">16</td><td class="n">1</td><td>Frostvale 32.3%</td></tr><tr><td><img class="i" src="img/snow.png" alt="" loading="lazy"><b>Packed snow</b></td><td class="n">12</td><td class="n">1</td><td>Frostvale 22.2%</td></tr><tr><td><img class="i" src="img/sand.png" alt="" loading="lazy"><b>Sand</b></td><td class="n">10</td><td class="n">1</td><td>Sunscour 29.7%</td></tr><tr><td><img class="i" src="img/sandstone.png" alt="" loading="lazy"><b>Sandstone</b></td><td class="n">20</td><td class="n">1</td><td>Sunscour 27.7%</td></tr><tr><td><img class="i" src="img/mud.png" alt="" loading="lazy"><b>Mud</b></td><td class="n">12</td><td class="n">1</td><td>Mirebloom 33%</td></tr><tr><td><img class="i" src="img/crypt_brick.png" alt="" loading="lazy"><b>Crypt brick</b></td><td class="n">26</td><td class="n">1</td><td>The Crypt 41.1%</td></tr><tr><td><img class="i" src="img/ash.png" alt="" loading="lazy"><b>Ash</b></td><td class="n">12</td><td class="n">1</td><td>Cinder Depths 28%</td></tr><tr><td><img class="i" src="img/obsidian.png" alt="" loading="lazy"><b>Obsidian</b></td><td class="n">160</td><td class="n">6</td><td>The Crypt 3.7%<br>Cinder Depths 20.6%</td></tr><tr><td><img class="i" src="img/meteorite.png" alt="" loading="lazy"><b>Meteorite</b></td><td class="n">40</td><td class="n">1</td><td>Meteor Shower only</td></tr></tbody></table></div>
+</main>
+</div>
+<footer><div class="in">Every number on this wiki is generated from the game's own data and code (game version 0.0.1). Spotted something wrong? <a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20wiki">Tell us</a>. &copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</div></footer>
+</body>
+</html>

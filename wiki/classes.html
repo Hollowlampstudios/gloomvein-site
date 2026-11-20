@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classes - Gloomvein Wiki</title>
+<meta name="description" content="Gloomvein&#x27;s four classes: Melee, Ranged, Magic and Summoner, with stats and rules.">
+<link rel="canonical" href="https://gloomvein.com/wiki/classes.html">
+<link rel="icon" href="../img/favicon.png" type="image/png">
+<meta name="theme-color" content="#120d09">
+<style>
+@font-face { font-family: "Lilita One"; src: url("../roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #120d09; --rock: #1d1610; --rock2: #241b13; --edge: #3a2c1e; --ink: #f2e4c6; --soft: #c4b394; --dim: #8c7c62;
+  --gold: #ffd24a; --ember: #ff8a3a; --violet: #b98cff;
+  --display: "Lilita One", system-ui, sans-serif; --text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 1rem/1.6 var(--text); background: var(--bg); }
+a { color: var(--gold); }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 0 0 0.4rem; }
+h2 { font-size: 1.7rem; margin: 2.4rem 0 0.6rem; color: var(--gold); }
+h3 { font-size: 1.25rem; margin: 1.6rem 0 0.4rem; }
+p, li { color: var(--soft); max-width: 46rem; }
+strong, b { color: var(--ink); }
+.dim { color: var(--dim); font-size: 0.9em; }
+.top { border-bottom: 2px solid var(--edge); background: #0d0906; }
+.top .in { width: min(84rem, 100% - 2rem); margin-inline: auto; display: flex; align-items: center; gap: 1rem; padding: 0.6rem 0; }
+.top img { height: 40px; width: auto; }
+.top a { text-decoration: none; font-family: var(--display); font-size: 1.25rem; color: var(--ink); }
+.top .sp { flex: 1; }
+.top .site { font-family: var(--text); font-size: 0.95rem; color: var(--soft); }
+.page { width: min(84rem, 100% - 2rem); margin-inline: auto; display: grid; gap: 2rem; padding: 1.5rem 0 3rem; }
+nav.side ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+nav.side a { display: block; padding: 0.3rem 0.7rem; border-radius: 0.4rem; border: 1px solid var(--edge); text-decoration: none; color: var(--soft); background: var(--rock); font-size: 0.95rem; }
+nav.side a[aria-current] { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+@media (min-width: 980px) {
+  .page { grid-template-columns: 14rem 1fr; }
+  nav.side ul { display: block; position: sticky; top: 1rem; }
+  nav.side li { margin-bottom: 0.25rem; }
+}
+main { min-width: 0; }
+.lede { font-size: 1.1rem; color: var(--soft); }
+.tbl { overflow-x: auto; margin: 0.8rem 0 1.2rem; border: 1px solid var(--edge); border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--edge); }
+th { background: var(--rock2); color: var(--ink); font-weight: 600; white-space: nowrap; }
+td { color: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td b { color: var(--ink); }
+img.i { width: 24px; height: 24px; object-fit: contain; image-rendering: pixelated; vertical-align: -6px; margin-right: 0.35rem; }
+img.p { width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated; }
+img.b { width: 120px; height: 120px; object-fit: contain; image-rendering: pixelated; }
+.card { background: var(--rock); border: 1px solid var(--edge); border-radius: 0.8rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+.card h3 { margin-top: 0; }
+.head { display: flex; gap: 1rem; align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.8rem; }
+.grid a { display: block; background: var(--rock); border: 1px solid var(--edge); border-radius: 0.7rem; padding: 0.9rem 1rem; text-decoration: none; }
+.grid a b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--gold); display: block; }
+.grid a span { color: var(--soft); font-size: 0.95rem; }
+.note { border-left: 4px solid var(--gold); background: var(--rock); padding: 0.7rem 1rem; border-radius: 0 0.5rem 0.5rem 0; color: var(--soft); max-width: 46rem; }
+code { background: var(--rock2); padding: 0.05rem 0.35rem; border-radius: 0.3rem; color: var(--ink); font-size: 0.9em; }
+footer { border-top: 2px solid var(--edge); color: var(--dim); font-size: 0.9rem; }
+footer .in { width: min(84rem, 100% - 2rem); margin-inline: auto; padding: 1.2rem 0 2rem; }
+footer a { color: var(--soft); }
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><a href="../index.html"><img src="../img/logo.webp" alt="Gloomvein" width="134" height="40"></a><a href="index.html">Wiki</a><span class="sp"></span><a class="site" href="../index.html">gloomvein.com</a></div></header>
+<div class="page">
+<nav class="side" aria-label="Wiki pages"><ul><li><a href="index.html">Wiki home</a></li><li><a href="getting-started.html">How it works</a></li><li><a href="classes.html" aria-current=page>Classes</a></li><li><a href="world.html">The world</a></li><li><a href="enemies.html">Enemies</a></li><li><a href="bosses.html">Bosses</a></li><li><a href="mining.html">Mining</a></li><li><a href="crafting.html">Furnace and materials</a></li><li><a href="equipment.html">Equipment</a></li><li><a href="potions.html">Potions</a></li><li><a href="spells.html">Spells (Magic)</a></li><li><a href="minions.html">Minions (Summoner)</a></li><li><a href="crew.html">Crew</a></li><li><a href="events.html">Events</a></li><li><a href="rebirth.html">Rebirth and difficulty</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="gems.html">Gems and rewards</a></li><li><a href="formulas.html">Formulas</a></li></ul></nav>
+<main>
+<h1>Classes</h1>
+<p class="lede">You pick a class for each world. Gear made for another class does nothing for you, and only your own class's gear shows in the Workshop.</p>
+<div class="card"><div class="head"><img class="p" src="img/crest_melee.png" alt="" loading="lazy"><div><h2 style="margin:0">Melee</h2><p style="margin:0">Hit hard and outlast everything</p></div></div>
+<ul><li>Your sword swings by itself</li><li>Tap for power hits - tap fast to build a combo (up to x1.6 damage)</li><li>The toughest class: the most health and a built-in defense</li></ul>
+<h3>Rules</h3><ul><li>Tap damage is attack x 1.5, times (1 + combo). Each tap adds 0.1 to the combo, up to 0.6 (so up to x1.6); it fades 1.2 s after your last tap.</li><li>Heals 5% of the damage its sword deals (lifesteal).</li></ul>
+<h3>Starting stats</h3><div class="tbl"><table><thead><tr><th>Stat</th><th class="n">Value</th></tr></thead><tbody><tr><td>Health</td><td class="n">80</td></tr><tr><td>Attack</td><td class="n">5</td></tr><tr><td>Attack every</td><td class="n">0.9 s</td></tr><tr><td>Tap damage</td><td class="n">7.5</td></tr><tr><td>Defense</td><td class="n">3</td></tr></tbody></table></div>
+<h3>With a full kit of each tier</h3>
+<p class="dim">Weapon plus the three armor pieces of that metal, no charms, mount, potions or Core Tree. The class's tier multipliers depend on the highest tier you wear.</p>
+<div class="tbl"><table><thead><tr><th>Kit</th><th class="n">Health</th><th class="n">Attack</th><th class="n">Attack every</th><th class="n">Defense</th><th class="n">Attack mult.</th><th class="n">Health mult.</th></tr></thead><tbody><tr><td><img class="i" src="img/copper_sword.png" alt="" loading="lazy">Copper sword + Copper armor</td><td class="n">112</td><td class="n">7.2</td><td class="n">0.9 s</td><td class="n">7</td><td class="n">x0.8</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/lead_sword.png" alt="" loading="lazy">Lead sword + Lead armor</td><td class="n">125</td><td class="n">10.2</td><td class="n">0.9 s</td><td class="n">20</td><td class="n">x0.85</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/iron_sword.png" alt="" loading="lazy">Iron sword + Iron armor</td><td class="n">215</td><td class="n">32</td><td class="n">0.82 s</td><td class="n">27</td><td class="n">x1</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/silver_sword.png" alt="" loading="lazy">Silver sword + Silver armor</td><td class="n">175</td><td class="n">45.36</td><td class="n">0.8 s</td><td class="n">39</td><td class="n">x1.08</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/gold_sword.png" alt="" loading="lazy">Gold sword + Gold armor</td><td class="n">252</td><td class="n">79.3</td><td class="n">0.78 s</td><td class="n">56</td><td class="n">x1.3</td><td class="n">x1</td></tr></tbody></table></div></div>
+<div class="card"><div class="head"><img class="p" src="img/crest_ranged.png" alt="" loading="lazy"><div><h2 style="margin:0">Ranged</h2><p style="margin:0">Shoot them before they arrive</p></div></div>
+<ul><li>Fires on its own from a distance, so enemies take hits while they walk up</li><li>Arrows are crafted from your bars: mining feeds the quiver</li><li>Out of arrows you still sling stones, weakly - never stuck</li></ul>
+<h3>Rules</h3><ul><li>Shoots from range (62% of the arena). Each shot uses 1 arrow and adds the arrow's damage. Taps fire an extra shot at attack x 2.</li><li>With no arrows it slings stones for 40% damage. While the quiver is not empty it takes 30% less damage.</li><li>+1% of max health regenerated per second on top of the usual 1.5%.</li></ul>
+<h3>Starting stats</h3><div class="tbl"><table><thead><tr><th>Stat</th><th class="n">Value</th></tr></thead><tbody><tr><td>Health</td><td class="n">110</td></tr><tr><td>Attack</td><td class="n">5</td></tr><tr><td>Attack every</td><td class="n">0.8 s</td></tr><tr><td>Tap damage</td><td class="n">10</td></tr><tr><td>Defense</td><td class="n">6</td></tr></tbody></table></div>
+<h3>With a full kit of each tier</h3>
+<p class="dim">Weapon plus the three armor pieces of that metal, no charms, mount, potions or Core Tree. The class's tier multipliers depend on the highest tier you wear.</p>
+<div class="tbl"><table><thead><tr><th>Kit</th><th class="n">Health</th><th class="n">Attack</th><th class="n">Attack every</th><th class="n">Defense</th><th class="n">Attack mult.</th><th class="n">Health mult.</th></tr></thead><tbody><tr><td><img class="i" src="img/copper_bow.png" alt="" loading="lazy">Copper bow + Copper armor</td><td class="n">142</td><td class="n">7.04</td><td class="n">0.73 s</td><td class="n">10</td><td class="n">x0.88</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/lead_bow.png" alt="" loading="lazy">Lead bow + Lead armor</td><td class="n">155</td><td class="n">9.79</td><td class="n">0.8 s</td><td class="n">23</td><td class="n">x0.89</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/iron_bow.png" alt="" loading="lazy">Iron bow + Iron armor</td><td class="n">245</td><td class="n">29</td><td class="n">0.7 s</td><td class="n">30</td><td class="n">x1</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/silver_bow.png" alt="" loading="lazy">Silver bow + Silver armor</td><td class="n">369</td><td class="n">42.9</td><td class="n">0.68 s</td><td class="n">42</td><td class="n">x1.1</td><td class="n">x1.8</td></tr><tr><td><img class="i" src="img/gold_bow.png" alt="" loading="lazy">Gold bow + Gold armor</td><td class="n">930.6</td><td class="n">87.1</td><td class="n">0.67 s</td><td class="n">59</td><td class="n">x1.34</td><td class="n">x3.3</td></tr></tbody></table></div></div>
+<div class="card"><div class="head"><img class="p" src="img/crest_magic.png" alt="" loading="lazy"><div><h2 style="margin:0">Magic</h2><p style="margin:0">Big spells, timed well</p></div></div>
+<ul><li>Staves fire mana bolts on their own; mana refills over time</li><li>Tap to cast your chosen spell - unlock more spells and pick between them</li><li>With no mana you only zap weakly - spend it wisely</li></ul>
+<h3>Rules</h3><ul><li>Every automatic bolt costs 3 mana; with too little mana it zaps for 50% damage instead.</li><li>A tap casts your chosen spell; when it cannot be cast the tap does a 60% flick. Deals x1.65 damage to bosses.</li><li>+1.5% of max health regenerated per second on top of the usual 1.5%.</li></ul>
+<h3>Starting stats</h3><div class="tbl"><table><thead><tr><th>Stat</th><th class="n">Value</th></tr></thead><tbody><tr><td>Health</td><td class="n">120</td></tr><tr><td>Attack</td><td class="n">8</td></tr><tr><td>Attack every</td><td class="n">0.8 s</td></tr><tr><td>Tap damage</td><td class="n">8</td></tr><tr><td>Defense</td><td class="n">7</td></tr><tr><td>Mana</td><td class="n">40</td></tr><tr><td>Mana regen</td><td class="n">9 /s</td></tr></tbody></table></div>
+<h3>With a full kit of each tier</h3>
+<p class="dim">Weapon plus the three armor pieces of that metal, no charms, mount, potions or Core Tree. The class's tier multipliers depend on the highest tier you wear.</p>
+<div class="tbl"><table><thead><tr><th>Kit</th><th class="n">Health</th><th class="n">Attack</th><th class="n">Attack every</th><th class="n">Defense</th><th class="n">Attack mult.</th><th class="n">Health mult.</th></tr></thead><tbody><tr><td><img class="i" src="img/copper_staff.png" alt="" loading="lazy">Copper staff + Copper armor</td><td class="n">152</td><td class="n">8.25</td><td class="n">0.8 s</td><td class="n">11</td><td class="n">x0.75</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/lead_staff.png" alt="" loading="lazy">Lead staff + Lead armor</td><td class="n">165</td><td class="n">12.75</td><td class="n">0.8 s</td><td class="n">24</td><td class="n">x0.75</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/iron_staff.png" alt="" loading="lazy">Iron staff + Iron armor</td><td class="n">255</td><td class="n">31.5</td><td class="n">0.8 s</td><td class="n">31</td><td class="n">x0.75</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/silver_staff.png" alt="" loading="lazy">Silver staff + Silver armor</td><td class="n">215</td><td class="n">47.25</td><td class="n">0.8 s</td><td class="n">43</td><td class="n">x0.75</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/gold_staff.png" alt="" loading="lazy">Gold staff + Gold armor</td><td class="n">700.8</td><td class="n">60.75</td><td class="n">0.8 s</td><td class="n">60</td><td class="n">x0.75</td><td class="n">x2.4</td></tr></tbody></table></div></div>
+<div class="card"><div class="head"><img class="p" src="img/crest_summoner.png" alt="" loading="lazy"><div><h2 style="margin:0">Summoner</h2><p style="margin:0">Crack the whip, command the horde</p></div></div>
+<ul><li>Your whip attacks on its own, like a sword</li><li>Minions fight beside you; unlock more and bring up to your whip&#x27;s limit</li><li>Tap to rally them: double damage for a few seconds</li></ul>
+<h3>Rules</h3><ul><li>Minions each hit for attack x 0.6 x their power, every 1.1 s divided by ((1 + your attack speed bonus) x their speed).</li><li>A tap rallies them: x3 minion damage for 4 s, then 8 s cooldown (otherwise a 60% flick).</li><li>Minions soak up to 42% of the damage you take, in proportion to how many of your whip's minion slots are filled.</li><li>+2% of max health regenerated per second on top of the usual 1.5%.</li></ul>
+<h3>Starting stats</h3><div class="tbl"><table><thead><tr><th>Stat</th><th class="n">Value</th></tr></thead><tbody><tr><td>Health</td><td class="n">95</td></tr><tr><td>Attack</td><td class="n">9</td></tr><tr><td>Attack every</td><td class="n">1.2 s</td></tr><tr><td>Tap damage</td><td class="n">13.5</td></tr><tr><td>Defense</td><td class="n">3</td></tr><tr><td>Minions</td><td class="n">1</td></tr></tbody></table></div>
+<h3>With a full kit of each tier</h3>
+<p class="dim">Weapon plus the three armor pieces of that metal, no charms, mount, potions or Core Tree. The class's tier multipliers depend on the highest tier you wear.</p>
+<div class="tbl"><table><thead><tr><th>Kit</th><th class="n">Health</th><th class="n">Attack</th><th class="n">Attack every</th><th class="n">Defense</th><th class="n">Attack mult.</th><th class="n">Health mult.</th></tr></thead><tbody><tr><td><img class="i" src="img/copper_whip.png" alt="" loading="lazy">Copper whip + Copper armor</td><td class="n">127</td><td class="n">11.96</td><td class="n">1.2 s</td><td class="n">7</td><td class="n">x0.92</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/lead_whip.png" alt="" loading="lazy">Lead whip + Lead armor</td><td class="n">140</td><td class="n">12.35</td><td class="n">1.2 s</td><td class="n">20</td><td class="n">x0.95</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/iron_whip.png" alt="" loading="lazy">Iron whip + Iron armor</td><td class="n">230</td><td class="n">28</td><td class="n">1.2 s</td><td class="n">27</td><td class="n">x1</td><td class="n">x1</td></tr><tr><td><img class="i" src="img/silver_whip.png" alt="" loading="lazy">Silver whip + Silver armor</td><td class="n">247</td><td class="n">37.4</td><td class="n">1.2 s</td><td class="n">39</td><td class="n">x1.1</td><td class="n">x1.3</td></tr><tr><td><img class="i" src="img/gold_whip.png" alt="" loading="lazy">Gold whip + Gold armor</td><td class="n">801</td><td class="n">49.45</td><td class="n">1.2 s</td><td class="n">56</td><td class="n">x1.15</td><td class="n">x3</td></tr></tbody></table></div></div>
+</main>
+</div>
+<footer><div class="in">Every number on this wiki is generated from the game's own data and code (game version 0.0.1). Spotted something wrong? <a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20wiki">Tell us</a>. &copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</div></footer>
+</body>
+</html>

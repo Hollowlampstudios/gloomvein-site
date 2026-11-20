@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works - Gloomvein Wiki</title>
+<meta name="description" content="How Gloomvein works: digging, selling, the furnace, crafting, depth, Elite Waves and bosses.">
+<link rel="canonical" href="https://gloomvein.com/wiki/getting-started.html">
+<link rel="icon" href="../img/favicon.png" type="image/png">
+<meta name="theme-color" content="#120d09">
+<style>
+@font-face { font-family: "Lilita One"; src: url("../roadmap/LilitaOne-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #120d09; --rock: #1d1610; --rock2: #241b13; --edge: #3a2c1e; --ink: #f2e4c6; --soft: #c4b394; --dim: #8c7c62;
+  --gold: #ffd24a; --ember: #ff8a3a; --violet: #b98cff;
+  --display: "Lilita One", system-ui, sans-serif; --text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 1rem/1.6 var(--text); background: var(--bg); }
+a { color: var(--gold); }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 0 0 0.4rem; }
+h2 { font-size: 1.7rem; margin: 2.4rem 0 0.6rem; color: var(--gold); }
+h3 { font-size: 1.25rem; margin: 1.6rem 0 0.4rem; }
+p, li { color: var(--soft); max-width: 46rem; }
+strong, b { color: var(--ink); }
+.dim { color: var(--dim); font-size: 0.9em; }
+.top { border-bottom: 2px solid var(--edge); background: #0d0906; }
+.top .in { width: min(84rem, 100% - 2rem); margin-inline: auto; display: flex; align-items: center; gap: 1rem; padding: 0.6rem 0; }
+.top img { height: 40px; width: auto; }
+.top a { text-decoration: none; font-family: var(--display); font-size: 1.25rem; color: var(--ink); }
+.top .sp { flex: 1; }
+.top .site { font-family: var(--text); font-size: 0.95rem; color: var(--soft); }
+.page { width: min(84rem, 100% - 2rem); margin-inline: auto; display: grid; gap: 2rem; padding: 1.5rem 0 3rem; }
+nav.side ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+nav.side a { display: block; padding: 0.3rem 0.7rem; border-radius: 0.4rem; border: 1px solid var(--edge); text-decoration: none; color: var(--soft); background: var(--rock); font-size: 0.95rem; }
+nav.side a[aria-current] { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+@media (min-width: 980px) {
+  .page { grid-template-columns: 14rem 1fr; }
+  nav.side ul { display: block; position: sticky; top: 1rem; }
+  nav.side li { margin-bottom: 0.25rem; }
+}
+main { min-width: 0; }
+.lede { font-size: 1.1rem; color: var(--soft); }
+.tbl { overflow-x: auto; margin: 0.8rem 0 1.2rem; border: 1px solid var(--edge); border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--edge); }
+th { background: var(--rock2); color: var(--ink); font-weight: 600; white-space: nowrap; }
+td { color: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td b { color: var(--ink); }
+img.i { width: 24px; height: 24px; object-fit: contain; image-rendering: pixelated; vertical-align: -6px; margin-right: 0.35rem; }
+img.p { width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated; }
+img.b { width: 120px; height: 120px; object-fit: contain; image-rendering: pixelated; }
+.card { background: var(--rock); border: 1px solid var(--edge); border-radius: 0.8rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+.card h3 { margin-top: 0; }
+.head { display: flex; gap: 1rem; align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.8rem; }
+.grid a { display: block; background: var(--rock); border: 1px solid var(--edge); border-radius: 0.7rem; padding: 0.9rem 1rem; text-decoration: none; }
+.grid a b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--gold); display: block; }
+.grid a span { color: var(--soft); font-size: 0.95rem; }
+.note { border-left: 4px solid var(--gold); background: var(--rock); padding: 0.7rem 1rem; border-radius: 0 0.5rem 0.5rem 0; color: var(--soft); max-width: 46rem; }
+code { background: var(--rock2); padding: 0.05rem 0.35rem; border-radius: 0.3rem; color: var(--ink); font-size: 0.9em; }
+footer { border-top: 2px solid var(--edge); color: var(--dim); font-size: 0.9rem; }
+footer .in { width: min(84rem, 100% - 2rem); margin-inline: auto; padding: 1.2rem 0 2rem; }
+footer a { color: var(--soft); }
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><a href="../index.html"><img src="../img/logo.webp" alt="Gloomvein" width="134" height="40"></a><a href="index.html">Wiki</a><span class="sp"></span><a class="site" href="../index.html">gloomvein.com</a></div></header>
+<div class="page">
+<nav class="side" aria-label="Wiki pages"><ul><li><a href="index.html">Wiki home</a></li><li><a href="getting-started.html" aria-current=page>How it works</a></li><li><a href="classes.html">Classes</a></li><li><a href="world.html">The world</a></li><li><a href="enemies.html">Enemies</a></li><li><a href="bosses.html">Bosses</a></li><li><a href="mining.html">Mining</a></li><li><a href="crafting.html">Furnace and materials</a></li><li><a href="equipment.html">Equipment</a></li><li><a href="potions.html">Potions</a></li><li><a href="spells.html">Spells (Magic)</a></li><li><a href="minions.html">Minions (Summoner)</a></li><li><a href="crew.html">Crew</a></li><li><a href="events.html">Events</a></li><li><a href="rebirth.html">Rebirth and difficulty</a></li><li><a href="achievements.html">Achievements</a></li><li><a href="gems.html">Gems and rewards</a></li><li><a href="formulas.html">Formulas</a></li></ul></nav>
+<main>
+<h1>How it works</h1>
+<p class="lede">Gloomvein has two halves: the battle at the top of the screen and the dig grid below it. They feed each other.</p>
+<h2>The dig</h2>
+<p>The grid is 7 blocks wide and 4 rows tall. Tap a block to hit it with your <b>mining damage</b>; when its health runs out it breaks,
+the column slides up and a new block appears at the bottom. Your <b>depth</b> is the number of blocks you have broken divided by 7.</p>
+<p>Ore blocks need enough <b>pick power</b> (your best pickaxe). A block your pickaxe cannot break is dimmed and crossed out.
+<b>Ore luck</b> is the chance that an ore block gives two ores instead of one. See <a href="mining.html">Mining</a>.</p>
+<h2>Selling and the furnace</h2>
+<p>Ores and bars sell for coins in the <b>Bag</b>. Enemy drops sell for nothing: they are crafting materials. <b>Sell All</b> never sells what
+you are saving for: it keeps back enough of every material for the most expensive recipe you can see and have not built yet
+(and the next tier of gear, crew, spells or minions).</p>
+<p>The <b>furnace</b> turns 2 ores into 1 bar on its own, one bar at a time. It smelts the most valuable bar it can, unless you tap the furnace
+strip and choose a bar to make first. See <a href="crafting.html">Furnace and materials</a>.</p>
+<h2>The Workshop</h2>
+<p>Gear, potions, spells and minions cost coins <b>and</b> materials, so nothing can be bought with coins alone. A recipe appears once you have
+found every material it needs at least once (a bar counts as found as soon as you have its ore).</p>
+<h2>The battle</h2>
+<p>Your hero fights on their own. Enemies of the layer you are digging in walk in from the right, up to 3 at a time, one every
+3.5 seconds. Tapping the battle does your class's special move (see <a href="classes.html">Classes</a>).
+Kills pay coins and sometimes drop materials.</p>
+<h2>Depth, Elite Waves and bosses</h2>
+<p>You cannot dig deeper than you have fought. The deepest depth you may reach is the number of <b>Elite Waves</b> you have beaten, plus one.
+Once you dig to that depth, every 10 kills bring an Elite Wave: 3 elite enemies with x1.8 health,
+x1.3 attack, x3 coins and x2 drop chance. Beat it and you may dig one level deeper.
+At a boss's depth the boss <b>is</b> the Elite Wave. Blocks keep breaking (and paying ore) while you wait; only the depth stops.</p>
+<p>Each Elite Wave beaten also makes the next ordinary enemies 3% tougher, up to 9 steps.</p>
+<h2>Dying</h2>
+<p>Dying costs no coins and no items. You lie down for a few seconds (longer the deeper you are), your running potions end, the melee combo
+breaks and the count towards the next Elite Wave starts again.</p>
+<h2>The crew and time away</h2>
+<p><a href="crew.html">Crew</a> members dig a column each, on their own. While the app is closed the crew keeps digging and the furnace keeps
+smelting what they bring, for up to 8 hours (more with a gem upgrade). There is no fighting while you are away.</p>
+<h2>Day and night</h2>
+<p>A day lasts 24 minutes. At night enemies are tougher but pay more. See <a href="world.html">The world</a>.</p>
+</main>
+</div>
+<footer><div class="in">Every number on this wiki is generated from the game's own data and code (game version 0.0.1). Spotted something wrong? <a href="mailto:gloomvein@gmail.com?subject=Gloomvein%20wiki">Tell us</a>. &copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</div></footer>
+</body>
+</html>
