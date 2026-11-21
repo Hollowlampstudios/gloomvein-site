@@ -105,6 +105,20 @@ section { padding: 4rem 0; }
 .support .eyes { color: var(--violet); }
 .roadmap-link { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; }
 
+/* Launch-day email list (PLAN A2) */
+.wl { border: 2px solid var(--gold); border-radius: 1rem; padding: clamp(1.4rem, 5vw, 3rem); background: var(--rock); box-shadow: 0 0 36px #ffb02e22; }
+.wl-form { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; max-width: 36rem; }
+.wl-form input[type=email] { flex: 1 1 14rem; min-width: 0; font: inherit; padding: 0.7rem 0.9rem; border-radius: 0.6rem;
+  border: 3px solid var(--edge); background: var(--bg); color: var(--ink); }
+.wl-form input[type=email]:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.wl-form button { cursor: pointer; }
+.wl-form button:disabled { opacity: 0.6; cursor: wait; }
+.wl-consent { flex-basis: 100%; color: var(--soft); font-size: 0.95rem; }
+.wl-consent input { width: 1.1rem; height: 1.1rem; vertical-align: -0.15rem; margin-right: 0.4rem; accent-color: var(--gold); }
+.wl-hide { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.wl-msg { min-height: 1.6em; margin: 0.8rem 0 0; }
+.wl-msg.ok { color: var(--gold); }
+.wl-msg.bad { color: #ff8a6a; }
 .socials { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.4rem 0 0; }
 .socials a { padding: 0.45rem 0.9rem; border: 2px solid var(--edge); border-radius: 0.5rem; background: var(--rock); color: var(--ink); text-decoration: none; }
 .socials a:hover { border-color: var(--gold); }
@@ -120,7 +134,7 @@ footer a { color: var(--soft); }
   <div class="top-text">
     <h1><img class="logo" src="img/logo.webp" width="900" height="268" alt="Gloomvein"></h1>
     <p class="pitch">The gold runs deeper than anyone has dug.<br>So does whatever is guarding it.</p>
-    <div class="ctas"><span class="btn soon" aria-disabled="true">Coming soon on itch.io</span><a class="btn dark" href="#support">Support the game</a></div>
+    <div class="ctas"><a class="btn gold" href="#wishlist">Get it on launch day</a><a class="btn dark" href="#support">Support the game</a></div>
     <p class="note">An idle mining RPG for Android. Free, in early access.</p>
   </div>
   <div class="top-art"><img src="img/hero.webp" width="960" height="960" alt="A small hero with a raised sword faces a huge shadow with glowing violet eyes and claws, in a tunnel lit by a vein of gold."></div>
@@ -169,6 +183,21 @@ footer a { color: var(--soft); }
   <div class="ctas left"><a class="btn dark" href="mailto:gloomvein@gmail.com?subject=Gloomvein%20bug%20report&amp;body=What%20happened%3A%0A%0A%0AWhat%20you%20expected%3A%0A%0A%0AYour%20phone%20%28model%20and%20Android%20version%29%3A%0AGame%20version%20%28bottom%20of%20the%20Options%20screen%29%3A%0A">Report a bug</a><a class="btn dark" href="mailto:gloomvein@gmail.com?subject=Gloomvein%20feature%20request&amp;body=Your%20idea%3A%0A%0A%0AWhy%20it%20would%20make%20the%20game%20better%3A%0A">Request a feature</a></div>
   <p class="note">In the game, Options then Report a problem fills in your phone and game details for you.</p>
 </section>
+<section class="wrap" id="wishlist" aria-labelledby="launch">
+  <div class="wl">
+    <h2 id="launch">Get it on launch day</h2>
+    <p class="lede">Gloomvein launches on 1 December. Leave your email and we send you one message when it is out. No newsletter, no spam.</p>
+    <form id="wishlist-form" class="wl-form">
+      <label class="wl-hide" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+      <label for="wl-email" class="wl-hide">Email address</label>
+      <input id="wl-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
+      <button class="btn gold" type="submit">Tell me</button>
+      <label class="wl-consent"><input name="consent" type="checkbox" required> Email me when Gloomvein launches. I can unsubscribe any time (<a href="privacy.html#launch-list">privacy</a>).</label>
+    </form>
+    <p id="wishlist-msg" class="wl-msg" role="status" aria-live="polite"></p>
+    <p class="note">Or follow <a href="https://gloomvein.itch.io">Gloomvein on itch.io</a> and itch tells you when it is out.</p>
+  </div>
+</section>
 <section class="wrap" aria-labelledby="follow">
   <h2 id="follow">Follow the dig</h2>
   <p class="lede">Clips, devlogs and the launch on 1 December. The Discord is where to ask questions and talk to the developer.</p>
@@ -190,5 +219,6 @@ footer a { color: var(--soft); }
   <p>&copy; 2026 <a href="https://hollowlampstudios.github.io">Hollowlamp Studios</a>.</p>
   <a class="credit" href="roadmap/LilitaOne-OFL.txt">Font: Lilita One by Juan Montoreano (SIL OFL)</a>
 </footer>
+<script src="wishlist.js" defer></script>
 </body>
 </html>
